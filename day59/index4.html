@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parse Functions</title>
+</head>
+<body>
+    <script>
+        function parseElement(element) {
+            const parsedInt = parseInt(element);
+            const parsedFloat = parseFloat(element);
+            
+            console.log(`parseInt result: ${isNaN(parsedInt) ? `Cannot parse '${element}' as an integer` : parsedInt}`);
+            console.log(`parseFloat result: ${isNaN(parsedFloat) ? `Cannot parse '${element}' as a float` : parsedFloat}`);
+        }
+
+        // Example usage
+        parseElement("123.45");
+        parseElement("456");
+        parseElement("abc");
+    </script>
+</body>
+</html>

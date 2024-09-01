@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Project</title>
+</head>
+<body>
+    <h1>Bank Account Registration</h1>
+    <form id="bankForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        document.getElementById('bankForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let firstName = document.getElementById('firstName').value;
+            let lastName = document.getElementById('lastName').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let id = Math.floor(Math.random() * 1000000);  // Generate a random ID
+            
+            console.log(`ID: ${id}`);
+            console.log(`First Name: ${firstName}`);
+            console.log(`Last Name: ${lastName}`);
+            console.log(`Email: ${email}`);
+            console.log(`Password: ${password}`);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click</title>
+</head>
+<body>
+    <p id="firstParagraph">First paragraph text.</p>
+    <p id="secondParagraph">Second paragraph text.</p>
+    <p id="thirdParagraph">Third paragraph text.</p>
+
+    <button onclick="swapText()">Swap Text</button>
+
+    <script>
+        function swapText() {
+            let firstText = document.getElementById("firstParagraph").innerHTML;
+            let secondText = document.getElementById("secondParagraph").innerHTML;
+            let thirdText = document.getElementById("thirdParagraph").innerHTML;
+
+            document.getElementById("firstParagraph").innerHTML = secondText;
+            document.getElementById("secondParagraph").innerHTML = thirdText;
+            document.getElementById("thirdParagraph").innerHTML = firstText;
+        }
+    </script>
+</body>
+</html>

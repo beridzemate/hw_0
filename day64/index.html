@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Creation</title>
+</head>
+<body>
+    <h1>Create Your Profile</h1>
+    <form id="profileForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="profileOutput"></div>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let firstName = document.getElementById('firstName').value;
+            let lastName = document.getElementById('lastName').value;
+            let age = document.getElementById('age').value;
+            let dob = document.getElementById('dob').value;
+
+            let profile = {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                dateOfBirth: dob
+            };
+
+            console.log(profile);
+
+            document.getElementById('profileOutput').textContent = `Name: ${profile.firstName} ${profile.lastName}, Age: ${profile.age}, Date of Birth: ${profile.dateOfBirth}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraphs with Buttons</title>
+    <style>
+        .green-text {
+            color: green;
+        }
+        .red-text {
+            color: red;
+        }
+        .yellow-text {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="paragraph1">First paragraph</p>
+    <p id="paragraph2">Second paragraph</p>
+    <p id="paragraph3">Third paragraph</p>
+
+    <button onclick="changeColor('paragraph1', 'green-text')">Green</button>
+    <button onclick="changeColor('paragraph2', 'red-text')">Red</button>
+    <button onclick="changeColor('paragraph3', 'yellow-text')">Yellow</button>
+
+    <script>
+        function changeColor(paragraphId, colorClass) {
+            let paragraph = document.getElementById(paragraphId);
+            paragraph.className = colorClass;
+        }
+    </script>
+</body>
+</html>

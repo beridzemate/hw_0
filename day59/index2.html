@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Styled Paragraph</title>
+</head>
+<body>
+    <script>
+        function styledParagraph() {
+            const text = prompt("Enter the text:");
+            const textColor = prompt("Enter the text color:");
+            const bgColor = prompt("Enter the background color:");
+            
+            const paragraph = document.createElement('p');
+            paragraph.textContent = text;
+            paragraph.style.color = textColor;
+            paragraph.style.backgroundColor = bgColor;
+            
+            document.body.appendChild(paragraph);
+        }
+
+        // Example usage
+        styledParagraph();
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            text-align: right;
+            vertical-align: top;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h2>CREATE USER</h2>
+    <form>
+        <div class="container">
+            <label for="userName">User Name*:</label>
+            <input type="text" id="userName" name="userName" required>
+        </div>
+        <div class="container">
+            <label for="securityPassword">Security Password*:</label>
+            <input type="password" id="securityPassword" name="securityPassword" required>
+        </div>
+        <div class="container">
+            <label for="confirmPassword">Confirm Password*:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="container">
+            <label for="firstName">First Name*:</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="container">
+            <label for="lastName">Last Name*:</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div class="container">
+            <label for="language">Language:</label>
+            <select id="language" name="language">
+                <option value="English" selected>English</option>
+                <!-- Add other languages here -->
+            </select>
+        </div>
+        <div class="container">
+            <label for="roles">Role Assignment:</label>
+            <select id="roles" name="roles" size="4" multiple required>
+                <option value="Controls Engineer">Controls Engineer</option>
+                <option value="Maintenance Engineer">Maintenance Engineer</option>
+                <option value="Maintenance Manager">Maintenance Manager</option>
+                <option value="Production Manager">Production Manager</option>
+            </select>
+        </div>
+        <div class="container">
+            <label for="email">Email*:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="container">
+            <label for="workPhone">Work Phone:</label>
+            <input type="tel" id="workPhone" name="workPhone">
+        </div>
+        <div class="container">
+            <label for="mobilePhone">Mobile Phone:</label>
+            <input type="tel" id="mobilePhone" name="mobilePhone">
+        </div>
+        <div class="container">
+            <label for="notificationPreference">Notification Preference:</label>
+            <label for="emailPreference">
+                <input type="radio" id="emailPreference" name="notificationPreference" value="Email" checked>
+                Email
+            </label>
+            <label for="smsPreference">
+                <input type="radio" id="smsPreference" name="notification">

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banking Project</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>Bank Project</h1>
+
+  <div class="form-container">
+    <h2>Create Account</h2>
+    <form id="create-account-form">
+      <label for="account-name">Name:</label>
+      <input type="text" id="account-name" required>
+      <label for="initial-balance">Initial Balance:</label>
+      <input type="number" id="initial-balance" required>
+      <button type="submit">Create Account</button>
+    </form>
+  </div>
+
+  <div class="form-container">
+    <h2>Transfer Money</h2>
+    <form id="transfer-form">
+      <label for="from-account">From Account ID:</label>
+      <input type="number" id="from-account" required>
+      <label for="to-account">To Account ID:</label>
+      <input type="number" id="to-account" required>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" required>
+      <button type="submit">Transfer</button>
+    </form>
+  </div>
+
+  <script src="./script.js1"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum All Even Numbers</title>
+    <script>
+        function sumAllEvenNumbers(start, end) {
+            let sum = 0;
+                for (let i = start; i <= end; i++) {
+                    if (i % 2 === 0) {  
+                        sum += i;
+                    }
+            }
+            return sum;
+        }
+
+        function displaySumAllEvenNumbers() {
+            const start = parseInt(prompt("Enter the start number:"));
+            const end = parseInt(prompt("Enter the end number:"));
+            const result = sumAllEvenNumbers(start, end);
+            console.log(`Sum of all even numbers between ${start} and ${end}: ${result}`);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="displaySumAllEvenNumbers()">Calculate Sum of All Even Numbers</button>
+</body>
+</html>

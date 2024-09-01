@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorful Text Display</title>
+<script>
+function displayText() {
+    var text = document.getElementById("textInput").value;
+    var color = document.getElementById("colorInput").value;
+    var displayParagraph = document.getElementById("displayParagraph");
+    
+    displayParagraph.textContent = text;
+    displayParagraph.style.color = color;
+}
+</script>
+</head>
+<body>
+
+<input type="text" id="textInput" placeholder="Enter text">
+<input type="text" id="colorInput" placeholder="Enter color">
+<button onclick="displayText()">Display</button>
+<p id="displayParagraph"></p>
+
+</body>
+</html>

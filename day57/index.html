@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Information Display</title>
+<style>
+  #infoBlock {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+  }
+</style>
+<script>
+function displayInfo() {
+    let color = document.getElementById("colorInput").value;
+    let width = document.getElementById("widthInput").value;
+    let height = document.getElementById("heightInput").value;
+    let text = document.getElementById("textInput").value;
+    
+    let infoBlock = document.getElementById("infoBlock");
+    let infoText = document.getElementById("infoText");
+    
+    infoBlock.style.backgroundColor = color;
+    infoBlock.style.width = width + "px";
+    infoBlock.style.height = height + "px";
+    infoText.textContent = text;
+}
+</script>
+</head>
+<body>
+
+<input type="text" id="colorInput" placeholder="Color">
+<input type="number" id="widthInput" placeholder="Width">
+<input type="number" id="heightInput" placeholder="Height">
+<input type="text" id="textInput" placeholder="Text">
+<button onclick="displayInfo()">Information</button>
+
+<div id="infoBlock"><p id="infoText"></p></div>
+
+</body>
+</html>

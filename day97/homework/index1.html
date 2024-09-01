@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch Image</title>
+</head>
+<body>
+  <img id="image" alt="Fetched Image">
+
+  <script>
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.blob())
+      .then(imageBlob => {
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        document.getElementById('image').src = imageObjectURL;
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
+</body>
+</html>

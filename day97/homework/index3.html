@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch Form Submission</title>
+</head>
+<body>
+  <form id="myForm">
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="body" placeholder="Body" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+
+      const data = {
+        title: formData.get('title'),
+        body: formData.get('body')
+      };
+
+      setTimeout(() => {
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => response.json())
+          .then(data => console.log('Success:', data))
+          .catch(error => console.error('Error:', error));
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

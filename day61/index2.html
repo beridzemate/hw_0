@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum All Numbers</title>
+    <script>
+        function sumAllNumbers(start, end) {
+            let sum = 0;
+            for (let i = start; i <= end; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+
+        function displaySumAllNumbers() {
+            const start = parseInt(prompt("Enter the start number:"));
+            const end = parseInt(prompt("Enter the end number:"));
+            const result = sumAllNumbers(start, end);
+            console.log(`Sum of all numbers between ${start} and ${end}: ${result}`);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="displaySumAllNumbers()">Calculate Sum of All Numbers</button>
+</body>
+</html>

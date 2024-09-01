@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Radio Member Details</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h2>Hospital Radio Member Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Member ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="memberTable">
+            <!-- Members will be inserted here -->
+        </tbody>
+    </table>
+    <div class="buttons">
+        <input type="text" id="memberIdInput" placeholder="Member ID" disabled>
+        <input type="text" id="nameInput" placeholder="Name">
+        <input type="number" id="phoneInput" placeholder="Phone">
+        <input type="text" id="addressInput" placeholder="Address">
+        <input type="text" id="statusInput" placeholder="Status" value="Support">
+        <button onclick="addMember()">Add</button>
+        <button onclick="deleteMember()">Delete</button>
+        <button onclick="searchMember()">Search</button>
+    </div>
+</body>
+</html>
