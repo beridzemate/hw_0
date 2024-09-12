@@ -12,7 +12,7 @@ function navigateTo(url) {
   function router() {
     const app = document.getElementById('app');
     const currentPath = window.location.pathname;
-    // app.innerHTML = routes[currentPath] || "<h1>404 Page Not Found</h1>";
+    app.innerHTML = routes[currentPath] || "<h1>404 Page Not Found</h1>";
   }
   
   window.addEventListener('popstate', router);
