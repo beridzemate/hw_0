@@ -16,7 +16,7 @@ const DoubleThemeComponent = () => {
     );
   };
   
-  const ThemedComponent = () => {
+  const ThemedComponent1 = () => {
     const theme = useTheme();
     return (
       <div style={{ backgroundColor: theme.background, padding: '20px' }}>
@@ -35,4 +35,31 @@ const DoubleThemeComponent = () => {
       </ThemeContext.Provider>
     );
   };
+  const App = () => {
+    const lightTheme = { background: 'lightyellow' };
+    const darkTheme = { background: 'darkgray' };
   
+    return (
+      <>
+        <ThemeProvider initialTheme={lightTheme}>
+          <ThemedComponent />
+        </ThemeProvider>
+  
+        <ThemeProvider initialTheme={darkTheme}>
+          <ThemedComponent />
+        </ThemeProvider>
+      </>
+    );
+  };
+  
+  const ThemedComponent = () => {
+    const theme = useTheme();
+    return (
+      <div style={{ backgroundColor: theme.background, padding: '20px' }}>
+        <h1>ThemeProvider Example</h1>
+      </div>
+    );
+  };
+  
+  export default App;
+    
