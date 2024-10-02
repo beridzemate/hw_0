@@ -1,6 +1,6 @@
 import React from 'react';
-import ErrorBoundary from './ErrorBoundary';
-import MyComponent from './MyComponent';
+// import ErrorBoundary from './ErrorBoundary';
+// import MyComponent from './MyComponent';
 
 function App() {
   return (
@@ -11,6 +11,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
-
