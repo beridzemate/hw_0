@@ -31,7 +31,7 @@ const useWindowSize = () => {
 };
 
 // Custom Hook: Data Fetching
-const useFetch = () => {
+const useFetch = ("https://fakestoreapi.com/products");{
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -39,7 +39,7 @@ const useFetch = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch("https://fakestoreapi.com/products");
         if (!response.ok) throw new Error('Error fetching data');
         const result = await response.json();
         setData(result);
@@ -50,7 +50,7 @@ const useFetch = () => {
       }
     };
     fetchData();
-  }, [url]);
+  }, ["https://fakestoreapi.com/products"]);
 
   return { data, loading, error };
 };
