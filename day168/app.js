@@ -1,5 +1,4 @@
 const os = require('os');
-const { parse } = require('path');
 
 console.log('Command-line arguments:', process.argv);
 console.log('Current working directory:', process.cwd());
@@ -15,19 +14,41 @@ console.log('CPU architecture:', os.arch());
 console.log('System uptime:', os.uptime(), 'seconds');
 console.log('Process uptime:', process.uptime(), 'seconds');
 
-
-if(process.argv.length === 5) {
+if (process.argv.length === 5) {
     const firstNumber = parseFloat(process.argv[2]);
-    const operator = process.argv[2];
+    const operator = process.argv[3];
     const secondNumber = parseFloat(process.argv[4]);
-    let resut;
-    switch(operator){
-    case '+':
-        result = firstNumber + secondNumber
-        break;
-    case '-':
-        result = firstNumber - secondNumber
-        break;
 
-  }
+    let result;
+
+    switch (operator) {
+        case '+':
+            result = firstNumber + secondNumber;
+            break;
+        case '-':
+            result = firstNumber - secondNumber;
+            break;
+        case '*':
+            result = firstNumber * secondNumber;
+            break;
+        case '/':
+            if (secondNumber !== 0) {
+                result = firstNumber / secondNumber;
+            } else {
+                console.log('Error: Division by zero');
+                process.exit(1);
+            }
+            break;
+        case '%':
+            result = firstNumber % secondNumber;
+            break;
+        default:
+            console.log('Error: Invalid operator. Use +, -, *, /, or %');
+            process.exit(1);
+    }
+
+    console.log(`Result: ${firstNumber} ${operator} ${secondNumber} = ${result}`);
+} else {
+    console.log('Usage: node system-info-and-calculator.js <first-number> <operator> <second-number>');
+    console.log('Example: node system-info-and-calculator.js 5 + 3');
 }
