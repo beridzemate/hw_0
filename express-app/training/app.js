@@ -1,5 +1,6 @@
 import express from 'express';
 const app = express();
+const port = 3000;
 const accounts = [
   { id: 1, name: "John Doe", balance: 100 },
   { id: 2, name: "Jane Doe", balance: 500 },
@@ -42,7 +43,6 @@ app.listen(3000, () => {
 
 //2
 const express = require('express');
-const port = 3000;
 
 const products = [
   { productId: 101, productName: 'Laptop', price: 1200 },
