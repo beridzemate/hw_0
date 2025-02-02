@@ -1,0 +1,50 @@
+🚀 Express.js Big Task: Build a Complete Product Management API
+📌 Objective:
+Create a REST API using Express.js that allows users to manage products. The API should support CRUD operations (Create, Read, Update, Delete) and include sorting, filtering, and pagination using query parameters.
+
+🔹 Requirements & Features:
+1️⃣ Setup & Dependencies
+Install and configure Express.js
+Use CORS to handle cross-origin requests
+Use body-parser to parse JSON request bodies
+Use the fs module to read and write data from a file (products.json)
+
+2️⃣ API Endpoints & Functionality
+📍 GET /products - Fetch All Products
+✅ Return a list of all products stored in products.json
+✅ Support query parameters:
+
+sort=ascending → Sort by price (low to high)
+sort=descending → Sort by price (high to low)
+minPrice=10 → Filter products with price greater than or equal to 10
+maxPrice=50 → Filter products with price less than or equal to 50
+limit=5 → Return only the first 5 products
+Example Request:
+GET /products?sort=ascending&minPrice=10&limit=5
+
+📍 GET /products/:id - Fetch Single Product
+✅ Return a single product based on the given id
+✅ If the product does not exist, return a 404 error
+
+Example Request:
+GET /products/3
+
+📍 POST /products - Add a New Product
+✅ Accept JSON body with name and price
+✅ Add a new product with a unique ID to products.json
+✅ If name or price is missing, return a 400 error
+✅ Save the updated product list back to the file
+
+
+📍 PUT /products/:id - Update an Existing Product
+✅ Update the name and/or price of an existing product
+✅ If the product does not exist, return a 404 error
+✅ Save the updated product list back to the file
+
+📍 DELETE /products/:id - Delete a Product
+✅ Remove a product from products.json based on the given id
+✅ If the product does not exist, return a 404 error
+✅ Save the updated product list back to the file
+
+Example Request:
+DELETE /products/2
