@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia Food Inflation Rates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filters {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        #searchInput {
+            padding: 8px;
+            width: 300px;
+        }
+
+        #sortSelect {
+            padding: 8px;
+        }
+
+        .data-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .country-info {
+            width: 60%;
+        }
+
+        .inflation-rate {
+            font-size: 1.5em;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Asia Food Inflation Rates</h1>
+        <p>Current food inflation data by Asian country</p>
+    </div>
+
+    <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search by country name...">
+        <select id="sortSelect">
+            <option value="country-asc">Country (A-Z)</option>
+            <option value="country-desc">Country (Z-A)</option>
+            <option value="rate-asc">Rate (Low to High)</option>
+            <option value="rate-desc">Rate (High to Low)</option>
+        </select>
+    </div>
+
+    <div id="dataContainer"></div>
+    <div id="loading" class="loading">Loading data...</div>
+
+    <script>
+        const API_KEY = 'YOUR_API_KEY'; // Replace with your actual API key
+        const API_URL = `https://zylalabs.com/api/5931/asia+food+inflation+api/7832/current+food+rates+by+asian+country`;
+
+        let originalData = [];
+        let filteredData = [];
+
+        async function fetchData() {
+            try {
+                const response = await fetch(API_URL, {
+                    headers: {
+                        'Authorization': `Bearer ${API_KEY}`
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                originalData = data;
+                filteredData = [...originalData];
+                renderData();
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                document.getElementById('loading').textContent = 'Error loading data. Please try again later.';
+            }
+        }
+
+        function renderData() {
+            const container = document.getElementById('dataContainer');
+            container.innerHTML = '';
+
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'data-card';
+                card.innerHTML = `
+                    <div class="country-info">
+                        <h3>${item.country}</h3>
+                        <p>${item.description}</p>
+                        <small>Last updated: ${new Date(item.date).toLocaleDateString()}</small>
+                    </div>
+                    <div class="inflation-rate">
+                        ${item.rate}%
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filteredData = originalData.filter(item => 
+                item.country.toLowerCase().includes(searchTerm)
+            );
+            renderData();
+        });
+
+        // Sorting functionality
+        document.getElementById('sortSelect').addEventListener('change', (e) => {
+            const sortValue = e.target.value;
+            
+            filteredData.sort((a, b) => {
+                switch(sortValue) {
+                    case 'country-asc':
+                        return a.country.localeCompare(b.country);
+                    case 'country-desc':
+                        return b.country.localeCompare(a.country);
+                    case 'rate-asc':
+                        return parseFloat(a.rate) - parseFloat(b.rate);
+                    case 'rate-desc':
+                        return parseFloat(b.rate) - parseFloat(a.rate);
+                    default:
+                        return 0;
+                }
+            });
+            
+            renderData();
+        });
+
+        // Initial data fetch
+        fetchData();
+    </script>
+</body>
+</html>
