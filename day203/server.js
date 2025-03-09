@@ -12,19 +12,16 @@ const DATA_FILE = path.join(__dirname, process.env.DATA_FILE || 'tasks.json');
 app.use(cors());
 app.use(express.json());
 
-// Custom Middleware for Logging
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);
     next();
 });
 
-// Error Handling Middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// Helper Functions
 const readTasks = () => {
     try {
         const data = fs.readFileSync(DATA_FILE, 'utf8');
