@@ -47,6 +47,12 @@ async function addItemsBulk(req, res) {
         if (!Array.isArray(newItems) || newItems.some(item => !item.id || !item.name || !item.description)) {
             return res.status(400).json({ error: 'Invalid items format.' });
         }
+        let item = [];
+        try {
+            items = await readFromFile(dataFilePath);
+        } catch (err) {
+            push(item);
+        }
         const items = await readFromFile(dataFilePath);
         items.push(...newItems);
         await writeToFile(dataFilePath, items);
